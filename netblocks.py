@@ -47,7 +47,7 @@ class Block(object):
 
 def netmask(bits):
     """
-    given x bits return the netmask.
+    given int(x) bits return the netmask.
     """
     y = 0
     for i in xrange(32-bits,32):
