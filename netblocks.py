@@ -36,8 +36,9 @@ class Block(object):
       
       def inblock(self,ip):
           """
-          returns True if the ip given as a str()
+          returns True if the ip given as an int()
           is in the netblock passed from Block() class
+          use str2pack() to take the str() to long()
           """
           if ip & self.netmask == self.network:
              return True
