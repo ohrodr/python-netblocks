@@ -1,0 +1,25 @@
+# actually handle the basic subnet math
+>>> import netblocks as nb
+>>> b = nb.Block("10.24.20.0/9")
+>>> b.network
+167772160L
+>>> b.netmask
+4286578688L
+>>> b.broadcast
+176160767L
+>>> for pack in [b.network,b.netmask,b.broadcast]:
+...     print nb.pack2str(pack)
+... 
+10.0.0.0
+255.128.0.0
+10.127.255.255
+
+
+## determine what netblocks span a start/end range of IP addresses
+>>> start = nb.Block("216.240.32.0/32")
+>>> end = nb.Block("216.240.32.255/32")
+>>> nb.range2cidr(start,end)
+[216.240.32.0/24]
+>>> end = nb.Block("216.241.32.255/32")
+>>> nb.range2cidr(start,end)
+[216.240.32.0/19, 216.240.64.0/18, 216.240.128.0/17, 216.241.0.0/19, 216.241.32.0/24]
