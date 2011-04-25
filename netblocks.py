@@ -28,7 +28,7 @@ class Block(object):
         oldblock = self.network
         bits = self.bits
         newblock = oldblock + index * (2**(32-bits))
-        b = Block(pack2sstr(newblock) + '/' + str(bits))
+        b = Block(pack2str(newblock) + '/' + str(bits))
         if b.network >= 2**32:
               return False
         if b.network < 0:
