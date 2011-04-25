@@ -4,8 +4,7 @@ class Block(object):
       information of a netblock.
       """
       def __init__(self,cidr):
-          from math import floor
-          import re,sys
+          import re
           cidr_regex = re.compile('^(\d+\.\d+\.\d+\.\d+)/(\d+)$')
           try:
                 self.base  = str2pack(cidr_regex.match(cidr).group(1))
